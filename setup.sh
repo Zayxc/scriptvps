@@ -12,25 +12,25 @@ CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
 # Link Hosting Kalian Untuk Ssh Vpn
-akbarvpn="raw.githubusercontent.com/tcatvpn/scriptvps/main/ssh"
+akbarvpn="raw.githubusercontent.com/Zayxc/scriptvps/main/ssh"
 # Link Hosting Kalian Untuk Sstp
-akbarvpnn="raw.githubusercontent.com/tcatvpn/scriptvps/main/sstp"
+akbarvpnn="raw.githubusercontent.com/Zayxc/scriptvps/main/sstp"
 # Link Hosting Kalian Untuk Ssr
-akbarvpnnn="raw.githubusercontent.com/tcatvpn/scriptvps/main/ssr"
+akbarvpnnn="raw.githubusercontent.com/Zayxc/scriptvps/main/ssr"
 # Link Hosting Kalian Untuk Shadowsocks
-akbarvpnnnn="raw.githubusercontent.com/tcatvpn/scriptvps/main/shadowsocks"
+akbarvpnnnn="raw.githubusercontent.com/Zayxc/scriptvps/main/shadowsocks"
 # Link Hosting Kalian Untuk Wireguard
-akbarvpnnnnn="raw.githubusercontent.com/tcatvpn/scriptvps/main/wireguard"
+akbarvpnnnnn="raw.githubusercontent.com/Zayxc/scriptvps/main/wireguard"
 # Link Hosting Kalian Untuk Xray
-akbarvpnnnnnn="raw.githubusercontent.com/tcatvpn/scriptvps/main/xray"
+akbarvpnnnnnn="raw.githubusercontent.com/Zayxc/scriptvps/main/xray"
 # Link Hosting Kalian Untuk Ipsec
-akbarvpnnnnnnn="raw.githubusercontent.com/tcatvpn/scriptvps/main/ipsec"
+akbarvpnnnnnnn="raw.githubusercontent.com/Zayxc/scriptvps/main/ipsec"
 # Link Hosting Kalian Untuk Backup
-akbarvpnnnnnnnn="raw.githubusercontent.com/tcatvpn/scriptvps/main/backup"
+akbarvpnnnnnnnn="raw.githubusercontent.com/Zayxc/scriptvps/main/backup"
 # Link Hosting Kalian Untuk Websocket
-akbarvpnnnnnnnnn="raw.githubusercontent.com/tcatvpn/scriptvps/main/websocket"
+akbarvpnnnnnnnnn="raw.githubusercontent.com/Zayxc/scriptvps/main/websocket"
 # Link Hosting Kalian Untuk Ohp
-akbarvpnnnnnnnnnn="raw.githubusercontent.com/tcatvpn/scriptvps/main/ohp"
+akbarvpnnnnnnnnnn="raw.githubusercontent.com/Zayxc/scriptvps/main/ohp"
 
 # Getting
 echo "Checking VPS"
@@ -43,7 +43,7 @@ echo "Script Already Installed"
 exit 0
 fi
 mkdir /var/lib/akbarstorevpn;
-echo "IP=" >> /var/lib/Zayxc/ipvps.conf
+echo "IP=" >> /var/lib/akbarstorevpn/ipvps.conf
 wget https://${akbarvpn}/cf.sh && chmod +x cf.sh && ./cf.sh
 #install v2ray
 wget https://${akbarvpnnnnnn}/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
