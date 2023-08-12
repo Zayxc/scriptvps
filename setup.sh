@@ -1,12 +1,5 @@
 #!/bin/bash
-if [ "${EUID}" -ne 0 ]; then
-		echo "You need to run this script as root"
-		exit 1
-fi
-if [ "$(systemd-detect-virt)" == "openvz" ]; then
-		echo "OpenVZ is not supported"
-		exit 1
-fi
+
 # ==========================================
 # Color
 RED='\033[0;31m'
@@ -40,9 +33,8 @@ akbarvpnnnnnnnnn="raw.githubusercontent.com/tcatvpn/scriptvps/main/websocket"
 akbarvpnnnnnnnnnn="raw.githubusercontent.com/tcatvpn/scriptvps/main/ohp"
 
 # Getting
-MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Checking VPS"
-IZIN=$(wget -qO- ipinfo.io/ip);
+
 
 rm -f setup.sh
 clear
@@ -51,20 +43,20 @@ echo "Script Already Installed"
 exit 0
 fi
 mkdir /var/lib/akbarstorevpn;
-echo "IP=" >> /var/lib/akbarstorevpn/ipvps.conf
+echo "IP=" >> /var/lib/Zayxc/ipvps.conf
 wget https://${akbarvpn}/cf.sh && chmod +x cf.sh && ./cf.sh
 #install v2ray
-wget https://${akbarvpnnnnnn}/ins-xray.sh && chmod +x ins-xray.sh && screen -S xray ./ins-xray.sh
+wget https://${akbarvpnnnnnn}/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 #install ssh ovpn
-wget https://${akbarvpn}/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
-wget https://${akbarvpnn}/sstp.sh && chmod +x sstp.sh && screen -S sstp ./sstp.sh
+wget https://${akbarvpn}/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+wget https://${akbarvpnn}/sstp.sh && chmod +x sstp.sh && ./sstp.sh
 #install ssr
-wget https://${akbarvpnnn}/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh
-wget https://${akbarvpnnnn}/sodosok.sh && chmod +x sodosok.sh && screen -S ss ./sodosok.sh
+wget https://${akbarvpnnn}/ssr.sh && chmod +x ssr.sh && ssr ./ssr.sh
+wget https://${akbarvpnnnn}/sodosok.sh && chmod +x sodosok.sh && ./sodosok.sh
 #installwg
-wget https://${akbarvpnnnnn}/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
+wget https://${akbarvpnnnnn}/wg.sh && chmod +x wg.sh && ./wg.sh
 #install L2TP
-wget https://${akbarvpnnnnnnn}/ipsec.sh && chmod +x ipsec.sh && screen -S ipsec ./ipsec.sh
+wget https://${akbarvpnnnnnnn}/ipsec.sh && chmod +x ipsec.sh && ./ipsec.sh
 wget https://${akbarvpnnnnnnnn}/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 # Websocket
 wget https://${akbarvpnnnnnnnnn}/edu.sh && chmod +x edu.sh && ./edu.sh
@@ -81,22 +73,15 @@ rm -f /root/ipsec.sh
 rm -f /root/set-br.sh
 rm -f /root/edu.sh
 rm -f /root/ohp.sh
-cat <<EOF> /etc/systemd/system/autosett.service
-[Unit]
-Description=autosetting
-Documentation=https://t.me/Akbar218
 
-[Service]
-Type=oneshot
-ExecStart=/bin/bash /etc/set.sh
-RemainAfterExit=yes
+
 
 [Install]
 WantedBy=multi-user.target
 EOF
 systemctl daemon-reload
 systemctl enable autosett
-wget -O /etc/set.sh "https://${akbarvpn}/set.sh"
+
 chmod +x /etc/set.sh
 history -c
 echo "1.2" > /home/ver
