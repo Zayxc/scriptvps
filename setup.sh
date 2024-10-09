@@ -1,3 +1,4 @@
+
 #!/bin/bash
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
@@ -22,7 +23,7 @@ cd /root
 localip=$(hostname -I | cut -d\  -f1)
 hst=( `hostname` )
 dart=$(cat /etc/hosts | grep -w `hostname` | awk '{print $2}')
-if [[ "$hst" != "$dart" ]]; then
+if [[ "$hst" = "$dart" ]]; then
 echo "$localip $(hostname)" >> /etc/hosts
 fi
 
@@ -35,8 +36,13 @@ touch /etc/v2ray/scdomain
 
 
 
-rm /root/setup.sh >/dev/null 2>&1 
 
+
+
+
+rm /root/setup.sh >/dev/null 2>&1 
+  
+ 
 
 secs_to_human() {
     echo "Installation time : $(( ${1} / 3600 )) hours $(( (${1} / 60) % 60 )) minute's $(( ${1} % 60 )) seconds"
@@ -55,9 +61,7 @@ sleep 0.5
 rm setup.sh > /dev/null 2>&1
 sleep 0.5
 
-
 mkdir -p /var/lib/ >/dev/null 2>&1
-
 
 echo ""
 #wget -q https://raw.githubusercontent.com/Zayxc/tool/aio/tools.sh;chmod +x tools.sh;./tools.sh
