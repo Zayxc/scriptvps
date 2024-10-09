@@ -35,14 +35,7 @@ touch /etc/v2ray/scdomain
 
 
 
-
-
-if ! dpkg -s $ReqPKG  >/dev/null 2>&1; then
-  rm /root/setup.sh >/dev/null 2>&1 
-  exit
-else
-  clear
-fi
+rm /root/setup.sh >/dev/null 2>&1 
 
 
 secs_to_human() {
